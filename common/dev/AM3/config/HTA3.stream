@@ -1,0 +1,3 @@
+setUpstreamConnection URL="${UPSTREAM_MULTICAST}"
+setDownstreamConnection URL="${DOWNSTREAM_MULTICAST}"
+addRecoveryConnection NAME="APP-REWIND" URL="auto://app-rewind"

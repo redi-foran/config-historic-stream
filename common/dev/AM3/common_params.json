@@ -1,0 +1,45 @@
+{
+  "vmArgs": {
+    "baseArgs": [
+      "-server",
+      "-XX:+UseCompressedOops",
+      "-XX:+UseG1GC",
+      "-XX:MaxGCPauseMillis=100",
+      "-verbose:gc"
+    ],
+    "memory": {
+      "maxHeap": "2g",
+      "minHeap": "1g"
+    },
+    "connections": {
+      "status": "${STATUS_URL}",
+      "discovery": "${DISCOVERY_URL}"
+    },
+    "log": {
+      "syslog": {
+        "enabled": false
+      },
+      "udp": {
+        "enabled": false
+      },
+      "file": {
+        "enabled": false,
+        "target": "messages.log"
+      },
+      "console": {
+        "enabled": true
+      }
+    },
+    "platform": {
+      "configPath": "config",
+      "dataPath": "data",
+      "logPath": "logs",
+      "stripe": "${APPLICATION}"
+    },
+    "remoteDebug": {
+      "enabled": true,
+      "args": "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"
+    }
+  },
+  "appType" : "java_platform"
+}
