@@ -15,7 +15,9 @@ def _add_deployments(environments, data_centers, applications, stripes, instance
             application=application,
             stripe=stripe,
             instance=instance,
-            overrides_dir=os.path.join(this_dir, 'overrides', stripe))
+            overrides_dir=os.path.join(this_dir, 'overrides', stripe),
+            common_dir=os.path.join(this_dir, 'common'),
+            properties="%s.properties" % environment)
 
         if instance == 'primary':
             deployment.properties.save('AS_PRIMARY', 'PRIMARY=true', UPSERT)
@@ -24,7 +26,7 @@ def _add_deployments(environments, data_centers, applications, stripes, instance
 
         deployments.append(deployment)
 
-_environments = ['dev']
+_environments = ['dev', 'qa', 'prod']
 _data_centers = ['AM3']
 _applications = ['HTA3']
 _add_deployments(_environments, _data_centers, _applications, ['sequencer', 'eventdrop', 'extradrop'], ['primary', 'backup'])
