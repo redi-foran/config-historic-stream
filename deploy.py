@@ -1,10 +1,8 @@
 from bootstrapper import Deployment, Properties, UPSERT
 import itertools
 import os.path
-import pprint
 
 this_dir = os.path.dirname(os.path.abspath(__file__))
-printer = pprint.PrettyPrinter()
 
 deployments = []
 def _add_deployments(environments, data_centers, applications, stripes, instances):
@@ -31,8 +29,3 @@ _data_centers = ['AM3']
 _applications = ['HTA3']
 _add_deployments(_environments, _data_centers, _applications, ['sequencer', 'eventdrop', 'extradrop'], ['primary', 'backup'])
 _add_deployments(_environments, _data_centers, _applications, ['commander'], ['singleton'])
-
-
-# TODO Remove before tagging
-for deployment in deployments:
-    deployment.create()
