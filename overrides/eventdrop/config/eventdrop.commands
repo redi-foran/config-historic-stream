@@ -1,0 +1,4 @@
+/launch TYPE=eventdrop INSTANCE="EventDrop"
+/EventDrop/start URL="beam://0.0.0.0:1556?if=${NETWORK_DEVICE}" TARGET-URL="${JDBC_URL}" ${AS_PRIMARY}
+
+/services/bus/start URL="stream://${APPLICATION}"

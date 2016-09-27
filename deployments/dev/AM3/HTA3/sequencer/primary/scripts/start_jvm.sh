@@ -8,8 +8,8 @@ java \
 	-XX:MaxGCPauseMillis=100 \
 	-verbose:gc \
 	-Dplatform.stripe=HTA3 \
-	-Dplatform.configPath=config \
 	-Dplatform.logPath=logs \
+	-Dplatform.configPath=config \
 	-Dplatform.dataPath=data \
 	-Dtextadmin.listenPort=1500 \
 	-DdiscoveryUrl=discovery://239.111.133.34:18014?ifName=eth1 \

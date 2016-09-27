@@ -7,7 +7,7 @@ this_dir = os.path.dirname(os.path.abspath(__file__))
 printer = pprint.PrettyPrinter()
 
 deployments = []
-for environment, data_center, application, stripe, instance in itertools.product(['dev'], ['AM3'], ['HTA3'], ['sequencer'], ['primary', 'backup']):
+for environment, data_center, application, stripe, instance in itertools.product(['dev'], ['AM3'], ['HTA3'], ['sequencer', 'eventdrop'], ['primary', 'backup']):
     deployment = Deployment(
         environment=environment,
         data_center=data_center,
