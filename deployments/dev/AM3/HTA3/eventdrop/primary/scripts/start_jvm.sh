@@ -7,10 +7,10 @@ java \
 	-XX:+UseG1GC \
 	-XX:MaxGCPauseMillis=100 \
 	-verbose:gc \
-	-Dplatform.stripe=HTA3 \
-	-Dplatform.logPath=logs \
 	-Dplatform.configPath=config \
 	-Dplatform.dataPath=data \
+	-Dplatform.logPath=logs \
+	-Dplatform.stripe=HTA3 \
 	-Dtextadmin.listenPort=1501 \
 	-DdiscoveryUrl=discovery://239.111.133.34:18014?ifName=eth1 \
 	-Dstatus.target=pulse://239.111.133.33:18013?ifName=eth1 \
