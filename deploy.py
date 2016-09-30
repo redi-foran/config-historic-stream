@@ -1,4 +1,4 @@
-from bootstrapper import Deployment, Properties, UPSERT
+from bootstrapper import Deployment, Properties, PlatformCommandBuilder, UPSERT
 import itertools
 import os.path
 
@@ -8,6 +8,7 @@ this_dir = os.path.dirname(os.path.abspath(__file__))
 
 deployments = []
 def _add_deployments(environments, data_centers, applications, stripes, instances):
+    start_script_builder = PlatformCommandBuilder()
     for environment, data_center, application, stripe, instance in itertools.product(environments, data_centers, applications, stripes, instances):
         deployment = Deployment(
             environment=environment,
@@ -17,7 +18,8 @@ def _add_deployments(environments, data_centers, applications, stripes, instance
             instance=instance,
             overrides_dir=os.path.join(this_dir, 'overrides', stripe),
             common_dir=os.path.join(this_dir, 'common'),
-            properties="%s.properties" % environment)
+            properties="%s.properties" % environment,
+            builders=[start_script_builder])
 
         if instance == 'primary':
             deployment.properties.save('AS_PRIMARY', 'PRIMARY=true', UPSERT)
@@ -25,6 +27,7 @@ def _add_deployments(environments, data_centers, applications, stripes, instance
             deployment.properties.save('AS_PRIMARY', 'PRIMARY=false', UPSERT)
 
         deployments.append(deployment)
+
 
 _environments = ['dev', 'qa', 'prod']
 _data_centers = ['AM1']
