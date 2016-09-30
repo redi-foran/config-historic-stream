@@ -2,6 +2,8 @@ from bootstrapper import Deployment, Properties, UPSERT
 import itertools
 import os.path
 
+__all__ = ['deployments']
+
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
 deployments = []
@@ -25,7 +27,7 @@ def _add_deployments(environments, data_centers, applications, stripes, instance
         deployments.append(deployment)
 
 _environments = ['dev', 'qa', 'prod']
-_data_centers = ['AM3']
-_applications = ['HTA3']
+_data_centers = ['AM1']
+_applications = ['HTA1']
 _add_deployments(_environments, _data_centers, _applications, ['sequencer', 'eventdrop', 'extradrop'], ['primary', 'backup'])
 _add_deployments(_environments, _data_centers, _applications, ['commander'], ['singleton'])

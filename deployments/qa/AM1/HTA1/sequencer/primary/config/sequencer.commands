@@ -1,0 +1,6 @@
+/launch TYPE=sequencer INSTANCE=SEQUENCER
+
+/SEQUENCER/start URL="stream://HTA1" STREAM-ID="HTA1" TIME-FREQUENCY=1
+/SEQUENCER/addServer NAME="DOWNSTREAM_MULTICAST" URL="blast://239.111.132.32:18022?ifName=eth1&readBuffer=4194304"
+/SEQUENCER/addServer NAME="UPSTREAM_MULTICAST" URL="blah://239.111.132.31:18021?ifName=eth1&writeBuffer=4194304"
+/SEQUENCER/addServer NAME="SEQUENCER_REWIND" URL="beam://0.0.0.0:18000?discoveryId=sequencer-rewind"

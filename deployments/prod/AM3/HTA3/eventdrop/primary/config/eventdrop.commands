@@ -1,4 +1,0 @@
-/launch TYPE=eventdrop INSTANCE="EventDrop"
-/EventDrop/start URL="beam://0.0.0.0:1556?if=eth1" TARGET-URL="jdbc:sqlserver://localhost:1433;databaseName=dbInsight;user=Insight_DLUser;password=MwWVNi)!Tt)oO00QD@;?enableTransactions=true" PRIMARY=true
-
-/services/bus/start URL="stream://HTA3"
