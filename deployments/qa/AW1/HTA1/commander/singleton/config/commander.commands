@@ -1,0 +1,4 @@
+/launch TYPE=commander INSTANCE=COMMANDER
+/COMMANDER/start URL="stream://HTA1" STREAM-ID="HTA1"
+/COMMANDER/addStartOfSessionCommand DISCOVERY-ID="activatable_component" ACTIVE=false PRIMARY=true COMMAND=setActive CRITICAL=true
+/services/bus/start URL="stream://HTA1"

@@ -7,13 +7,9 @@
       "-XX:MaxGCPauseMillis=100",
       "-verbose:gc"
     ],
-    "memory": {
-      "maxHeap": "2g",
-      "minHeap": "1g"
-    },
     "connections": {
-      "status": "${STATUS_URL}",
-      "discovery": "${DISCOVERY_URL}"
+      "status": "${MC_STATUS}",
+      "discovery": "${MC_DISCOVERY}"
     },
     "log": {
       "syslog": {
@@ -41,5 +37,16 @@
       "args": "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n"
     }
   },
-  "appType" : "java_platform"
+  "memory": {
+    "max": "2g",
+    "min": "1g"
+  },
+  "dockerContainer": {
+      "volumes": [
+          {
+              "host": "/home/foran/Documents/config-historic-stream/var/redi/runtime/${APPLICATION}/${STRIPE}/${INSTANCE}",
+              "container": "/var/redi/runtime/${APPLICATION}/${STRIPE}/${INSTANCE}"
+          }
+      ]
+  }
 }

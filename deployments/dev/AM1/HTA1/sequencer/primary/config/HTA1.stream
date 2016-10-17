@@ -1,3 +1,0 @@
-setUpstreamConnection URL="blah://239.111.133.31:18021?ifName=eth1&writeBuffer=4194304"
-setDownstreamConnection URL="blast://239.111.133.32:18022?ifName=eth1&readBuffer=4194304"
-addRecoveryConnection NAME="APP-REWIND" URL="auto://app-rewind"

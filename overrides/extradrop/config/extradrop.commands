@@ -1,7 +1,7 @@
 /launch TYPE=algoparameterdrop INSTANCE="AlgoParameterDrop"
-/AlgoParameterDrop/start URL="beam://0.0.0.0:1557?if=${NETWORK_DEVICE}" TARGET-URL="${JDBC_URL}" ${AS_PRIMARY}
+/AlgoParameterDrop/start URL="beam://0.0.0.0:1557?ifName=${MC_NETWORK_DEVICE}" TARGET-URL="${JDBC_URL}" ${AS_PRIMARY}
 
 /launch TYPE=sessioninfodrop INSTANCE="SessionInfoDrop"
-/SessionInfoDrop/start URL="beam://0.0.0.0:1558?if=${NETWORK_DEVICE}" TARGET-URL="${JDBC_URL}" ${AS_PRIMARY}
+/SessionInfoDrop/start URL="beam://0.0.0.0:1558?ifName=${MC_NETWORK_DEVICE}" TARGET-URL="${JDBC_URL}" ${AS_PRIMARY}
 
 /services/bus/start URL="stream://${APPLICATION}"

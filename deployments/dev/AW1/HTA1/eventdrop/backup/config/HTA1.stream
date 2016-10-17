@@ -1,0 +1,3 @@
+setUpstreamConnection URL="blah://239.100.133.61:15000?ifName=15000"
+setDownstreamConnection URL="blast://239.100.133.62:15001?ifName=15001"
+setRecoveryConnection NAME="APP-REWIND" URL="auto://app-rewind"

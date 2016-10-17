@@ -1,0 +1,7 @@
+/launch TYPE=algoparameterdrop INSTANCE="AlgoParameterDrop"
+/AlgoParameterDrop/start URL="beam://0.0.0.0:1557?ifName=eth1" TARGET-URL="jdbc:sqlserver://localhost:1433;databaseName=dbInsight;user=Insight_DLUser;password=MwWVNi)!Tt)oO00QD@;?enableTransactions=true" PRIMARY=false
+
+/launch TYPE=sessioninfodrop INSTANCE="SessionInfoDrop"
+/SessionInfoDrop/start URL="beam://0.0.0.0:1558?ifName=eth1" TARGET-URL="jdbc:sqlserver://localhost:1433;databaseName=dbInsight;user=Insight_DLUser;password=MwWVNi)!Tt)oO00QD@;?enableTransactions=true" PRIMARY=false
+
+/services/bus/start URL="stream://HTA1"
