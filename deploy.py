@@ -1,7 +1,7 @@
 from bootstrapper import RUN_DIRECTORY_KEY
 from bootstrapper.deployment import Deployment
 from bootstrapper.properties import Properties, UPSERT, INSERT
-from bootstrapper.commands import PlatformCommandBuilder, StreamFileBuilder, SequencerCommandsFileBuilder, CommanderCommandsFileBuilder
+from bootstrapper.commands import PlatformCommandBuilder, StreamFileBuilder, SequencerCommandsFileBuilder, CommanderCommandsFileBuilder, StashCommandsFileBuilder, RewinderCommandsFileBuilder
 import itertools
 import os.path
 
@@ -14,7 +14,9 @@ TEXT_ADMIN_PORTS = {
         'sequencer': 1500,
         'commander': 1501,
         'eventdrop': 1502,
-        'extradrop': 1503
+        'extradrop': 1503,
+        'rewinder': 1504,
+        'stash': 1505
         }
 
 deployments = []
@@ -29,6 +31,10 @@ def _add_deployments(environments, data_centers, applications, stripes, instance
             
         if stripe == 'commander':
             builders.append(CommanderCommandsFileBuilder())
+        elif stripe == 'stash':
+            builders.append(StashCommandsFileBuilder())
+        elif stripe == 'rewinder':
+            builders.append(RewinderCommandsFileBuilder())
 
         deployment = Deployment(
             environment=environment,
@@ -54,4 +60,4 @@ _environments = ['dev', 'qa', 'prod']
 _data_centers = ['AW1']
 _applications = ['HTA1']
 _add_deployments(_environments, _data_centers, _applications, ['sequencer', 'eventdrop', 'extradrop'], ['primary', 'backup'])
-_add_deployments(_environments, _data_centers, _applications, ['commander'], ['singleton'])
+_add_deployments(_environments, _data_centers, _applications, ['commander', 'stash', 'rewinder'], ['singleton'])

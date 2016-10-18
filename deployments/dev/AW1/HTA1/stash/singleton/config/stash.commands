@@ -1,0 +1,3 @@
+/launch TYPE=rewinder INSTANCE=STASH
+/STASH/start URL="stream://HTA1"
+/STASH/addServer NAME="STASH_FILE" URL="stash://$YYYY$MM$DD-$S.messages.gz"
